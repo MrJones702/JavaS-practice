@@ -94,5 +94,60 @@ function rpsFrontEnd(humanImgChoice, botImgChoice, finalMessage){
     document.getElementById('flex-box-rps-div').appendChild(humanDiv);
     document.getElementById('flex-box-rps-div').appendChild(messageDiv);
     document.getElementById('flex-box-rps-div').appendChild(botDiv);
-
 }
+
+//Challenge 4: Change the Color of All Buttons
+let allButtons= document.getElementsByTagName('button');
+
+let copyAllButtons = [];
+for (let i= 0; i<allButtons.length; i++) {
+    copyAllButtons.push(allButtons[i].classList[1]);
+}
+
+function buttonColorChange(buttonThingy){
+    if (buttonThingy.value === 'red'){
+        buttonsRed();
+    } else if (buttonThingy.value === 'black'){
+        buttonsBlack();
+    } else if (buttonThingy.value=== 'reset'){
+        buttonsReset();
+    } else if (buttonThingy.value=== 'random'){
+        buttonsRandom();
+    }
+}
+
+function buttonsRed(){
+    for (let i=0; i< allButtons.length; i++){
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add('btn-danger');
+    }
+}
+
+function buttonsBlack(){
+    for (let i=0; i< allButtons.length; i++){
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add('btn-dark');
+    }
+}
+
+function buttonsReset(){
+    for (let i=0; i< allButtons.length; i++){
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add(copyAllButtons[i]);
+    }
+}
+
+function buttonsRandom(){
+    let choices=['btn-primary', 'btn-danger', 'btn-secondary', 'btn-dark'];
+
+    for (i=0; i< allButtons.length; i++){
+        let randomNum= Math.floor(Math.random()* 3)
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add(choices[randomNum]);
+    }
+}
+//Challenge 4: Change the Color of All Buttons
+
+//Challenge 5: BlackJack 21
+
+// Challenge 5: BlackJack 21

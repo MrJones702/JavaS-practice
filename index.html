@@ -8,8 +8,9 @@
     <title>Javascript amped up</title>
 </head>
 <body>
+    <!-- Challenge 1: days in age -->
     <div class="container-1"> 
-        <h2>Challenge 1: Your Age in Days</h2><!-- Challenge 1: days in age -->
+        <h2>Challenge 1: Your Age in Days</h2>
         <div class="flex-box-container-1">
             <div>
                 <button class="btn btn-primary" onclick="ageInDays()">Click me</button>
@@ -21,16 +22,19 @@
         <div class="flex-box-container-1">
             <div id="flex-box-result"></div>
         </div>
-    </div><!-- challenge one (days in age) -->
+    </div>
+    <!-- challenge one (days in age) -->
 
-    <div class="container-2"><!-- Challenge 2: recruit soldier -->
+    <!-- Challenge 2: recruit soldier -->
+    <div class="container-2">
         <h2>Challenge 2: Soldier Generator</h2>
         <button class="btn btn-success" id="recruiter" onclick="recruitSoldier()">Recruit Soldier</button>
         <div class="flex-box-container-2" id="flex-soldier">
         </div>
-    </div><!-- challenge two (recruit soldier) -->
+    </div>
+    <!-- challenge two (recruit soldier) -->
 
-    <!-- <div class="container-3"> Challenge 3: Rock, Paper, Scissors -->
+    <!-- < Challenge 3: Rock, Paper, Scissors -->
     <div class="container-3">
         <H2>Challenge 3: Rock, Paper, Scissors</H2>
         <div class="flex-box-rps" id="flex-box-rps-div">
@@ -39,7 +43,28 @@
             <img id="scissors" src="static/images/scissors.jpeg" alt="" height=200 width=200 onclick="rpsGame(this)" />
         </div>
     </div>
-    
+    <!-- < Challenge 3: Rock, Paper, Scissors -->
+
+    <!-- Challenge 4: Button Colors-->
+    <div class="container-4">
+        <h2 id="change-my-color">Challenge 4: Change the Color of All Buttons</h2>
+        <div class="flex-box-pick-color">
+            <form action="">
+                <select name="backdrop" id="background" onchange="buttonColorChange(this)">
+                    <option value="random">Random</option>
+                    <option value="red">Red</option>
+                    <option value="black">Black</option>
+                    <option value="reset">Reset</option>
+                </select>
+            </form>
+
+            <button class="btn btn-primary">Alpha</button>
+            <button class="btn btn-danger">Bravo</button>
+            <button class="btn btn-secondary">Charlie</button>
+            <button class="btn btn-dark">Delta</button>
+        </div>
+    </div>
+    <!-- Challenge 4: Button Colors-->
     <script src="static/js/script.js"></script>
 </body>
 </html>
