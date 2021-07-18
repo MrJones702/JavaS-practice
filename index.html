@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Javascript amped up</title>
+</head>
+<body>
+    <div class="container-1"> 
+        <h2>Challenge 1: Your Age in Days</h2><!-- Challenge 1: days in age -->
+        <div class="flex-box-container-1">
+            <div>
+                <button class="btn btn-primary" onclick="ageInDays()">Click me</button>
+            </div>
+            <div>
+                <button class="btn btn-danger" onclick="resetButton()">Reset</button>
+            </div>
+        </div>
+        <div class="flex-box-container-1">
+            <div id="flex-box-result"></div>
+        </div>
+    </div><!-- challenge one (days in age) -->
+
+    <div class="container-2"><!-- Challenge 2: recruit soldier -->
+        <h2>Challenge 2: Soldier Generator</h2>
+        <button class="btn btn-success" id="recruiter" onclick="recruitSoldier()">Recruit Soldier</button>
+        <div class="flex-box-container-2" id="flex-soldier">
+        </div>
+    </div><!-- challenge two (recruit soldier) -->
+
+    <!-- <div class="container-3"> Challenge 3: Rock, Paper, Scissors -->
+    <div class="container-3">
+        <H2>Challenge 3: Rock, Paper, Scissors</H2>
+        <div class="flex-box-rps" id="flex-box-rps-div">
+            <img id="rock" src="static/images/rock.png" alt="" height=200 width=200 onclick="rpsGame(this)"/>
+            <img id="paper" src="static/images/paper.jpeg" alt="" height=200 width=200 onclick="rpsGame(this)" />
+            <img id="scissors" src="static/images/scissors.jpeg" alt="" height=200 width=200 onclick="rpsGame(this)" />
+        </div>
+    </div>
+    
+    <script src="static/js/script.js"></script>
+</body>
+</html>
