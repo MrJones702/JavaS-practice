@@ -155,7 +155,9 @@ let blackjackGame = {
     'you': {'scoreSpan': '#your-blackjack-result', 'div': '#your-box', 'score': 0 },
     'dealer': {'scoreSpan': '#dealer-blackjack-result', 'div': '#dealer-box', 'score': 0 },
     'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
+    'cardsMap': { '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': [1, 11]}
 };
+
 const You= blackjackGame['you'];
 const Dealer= blackjackGame['dealer'];
 
@@ -168,6 +170,9 @@ function blackjackHit(){
     let card = randomCard();
     console.log(card);
     showCard(card, You);
+    updateScore(card, You);
+    console.log(You['score']);
+    showScore(You);
 }
 
 function randomCard(){
@@ -176,10 +181,12 @@ function randomCard(){
 }
 
 function showCard(card, activePlayer){
-    let cardImg= document.createElement('img');
-    cardImg.src= `static/images/${card}.png`;
-    document.querySelector(activePlayer['div']).appendChild(cardImg);
-    hitSound.play();
+    if(activePlayer['score'] <= 21) {
+        let cardImg= document.createElement('img');
+        cardImg.src= `static/images/${card}.png`;
+        document.querySelector(activePlayer['div']).appendChild(cardImg);
+        hitSound.play();
+    }
 }
 
 function blackjackDeal(){
@@ -192,7 +199,40 @@ function blackjackDeal(){
     for (i=0; i< dealerImages.length; i++) {
         dealerImages[i].remove();
     }
+
+    You['score'] = 0;
+    Dealer['score'] = 0;
+
+    document.querySelector('#your-blackjack-result').textContent = 0;
+    document.querySelector('#dealer-blackjack-result').textContent = 0;
+
+    document.querySelector('#your-blackjack-result').style.color = 'white';
+    document.querySelector('#dealer-blackjack-result').style.color = 'white';
+} 
+
+function updateScore(card, activePlayer){
+    if (card === 'A'){
+    //if adding 11 keeps me <= 21, add 11. Otherwise, add 1
+        if (activePlayer['score'] + blackjackGame['cardsMap'][card][1] <=21){
+            activePlayer['score'] += blackjackGame['cardsMap'][card][1];
+        } else {
+            activePlayer['score'] += blackjackGame['cardsMap'][card][0];
+        }
+
+    } else {
+        activePlayer['score'] += blackjackGame['cardsMap'] [card];
+    }
 }
 
+function showScore(activePlayer){
+    if (activePlayer['score'] > 21) {
+        document.querySelector(activePlayer['scoreSpan']).textContent = 'BUST!';
+        document.querySelector(activePlayer['scoreSpan']).style.color = 'red';
+    // } else(activePlayer['score'] = 21){
+    //     document.querySelector(activePlayer['scoreSpan']).textContent = 'BlackJack';
+    //     document.querySelector(activePlayer['scoreSpan']).style.color = 'green';
+    } else {
+    document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score'];
+    }
+}
 // Challenge 5: BlackJack 21
-6 07 01
